@@ -22,7 +22,7 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.2/Chart.min.js"></script>
   </head>
 
   <body id="page-top">
@@ -41,21 +41,21 @@
 
 
           <div class="row">
-
+            
             <div class="col-12 col-md-4 mb-3 chart">
-              <img class="img-fluid" src="/images/chart1.jpg">
+              <canvas id="chartBar" data-female="<%=nbrFemmes%>" data-male="<%=nbrHommes%>" width="100" height="100"></canvas>
             </div>
 
             <div class="col-12 col-md-4 mb-3 chart">
-              <img class="img-fluid" src="/images/chart2.jpg">
+              <canvas id="doughnut" data-read="<%=readMessages%>" data-unread="<%=unreadMessages%>" width="100" height="100"></canvas>
             </div>
 
             <div class="col-12 col-md-4 mb-3 chart">
-              <img class="img-fluid" src="/images/chart3.jpg">
+              <canvas id="chartpie" data-expedier="<%=nbrExp%>" data-nonExpedier="<%=nbrNonExp%>" width="100" height="100"></canvas>
             </div>
 
             <div class="col-12 col-md-4 mb-3 chart">
-              <img class="img-fluid" src="/images/chart4.jpg">
+              <canvas id="linechart" data-chartviz="<%=JSON.stringify(totalCAByMonth)%> width="100" height="100"></canvas>
             </div>
             
           </div>
@@ -63,14 +63,7 @@
         </div>
         <!-- /.container-fluid -->
 
-        <!-- Sticky Footer -->
-        <footer class="sticky-footer">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>Copyright © Blackboard</span>
-            </div>
-          </div>
-        </footer>
+        <%- include('footer') %>
 
       </div>
       <!-- /.content-wrapper -->
@@ -92,6 +85,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="/js/dataviz.js"></script>
 
   </body>
 
